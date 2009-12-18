@@ -1,0 +1,17 @@
+(dp1
+S'output'
+p2
+S''
+sS'layer'
+p3
+S'/home/mengu/web2py-screencast/applications/blog/controllers/categories.py'
+p4
+sS'code'
+p5
+S'# coding: utf8\n# try something like\ndef view():\n    categoryid = request.args(0)\n    categoryposts = db((db.relations.category == categoryid)&(db.relations.post == db.post.id)).select(groupby=~db.post.id)\n    return dict(categoryposts=categoryposts)\n\nresponse._vars=response._caller(view)\n'
+p6
+sS'traceback'
+p7
+S'Traceback (most recent call last):\n  File "/home/mengu/web2py-screencast/gluon/restricted.py", line 184, in restricted\n    exec ccode in environment\n  File "/home/mengu/web2py-screencast/applications/blog/controllers/categories.py", line 8, in <module>\n  File "/home/mengu/web2py-screencast/gluon/globals.py", line 103, in <lambda>\n    self._caller = lambda f: f()\n  File "/home/mengu/web2py-screencast/applications/blog/controllers/categories.py", line 5, in view\n    categoryposts = db((db.relations.category == categoryid)&(db.relations.post == db.post.id)).select(groupby=~db.post.id)\n  File "/home/mengu/web2py-screencast/gluon/sql.py", line 2901, in select\n    rows = response(query)\n  File "/home/mengu/web2py-screencast/gluon/sql.py", line 2896, in response\n    db._execute(query)\n  File "/home/mengu/web2py-screencast/gluon/sql.py", line 846, in <lambda>\n    self._execute = lambda *a, **b: self._cursor.execute(*a, **b)\nOperationalError: near "DESC": syntax error\n'
+p8
+s.

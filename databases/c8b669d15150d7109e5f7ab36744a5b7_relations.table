@@ -1,0 +1,22 @@
+(dp1
+S'category'
+p2
+S'REFERENCES category(id) ON DELETE CASCADE'
+p3
+sS'relationtype'
+p4
+S'CHAR(512)'
+p5
+sS'post'
+p6
+S'REFERENCES post(id) ON DELETE CASCADE'
+p7
+sS'tag'
+p8
+S'CHAR(512)'
+p9
+sS'id'
+p10
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p11
+s.

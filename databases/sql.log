@@ -1,0 +1,80 @@
+timestamp: 2009-12-15T18:39:56.674952
+CREATE TABLE auth_user(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	first_name CHAR(128),
+	last_name CHAR(128),
+	email CHAR(512),
+	password CHAR(512),
+	registration_key CHAR(512)
+);
+success!
+timestamp: 2009-12-15T18:39:56.810067
+CREATE TABLE auth_group(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	role CHAR(512),
+	description TEXT
+);
+success!
+timestamp: 2009-12-15T18:39:56.984213
+CREATE TABLE auth_membership(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	user_id REFERENCES auth_user(id) ON DELETE CASCADE,
+	group_id REFERENCES auth_group(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2009-12-15T18:39:57.087671
+CREATE TABLE auth_permission(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	group_id REFERENCES auth_group(id) ON DELETE CASCADE,
+	name CHAR(512),
+	table_name CHAR(512),
+	record_id INTEGER
+);
+success!
+timestamp: 2009-12-15T18:39:57.213991
+CREATE TABLE auth_event(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	time_stamp TIMESTAMP,
+	client_ip CHAR(512),
+	user_id REFERENCES auth_user(id) ON DELETE CASCADE,
+	origin CHAR(512),
+	description TEXT
+);
+success!
+timestamp: 2009-12-15T18:39:57.338214
+CREATE TABLE post(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	user REFERENCES auth_user(id) ON DELETE CASCADE,
+	title CHAR(512),
+	body TEXT,
+	dateline TIMESTAMP
+);
+success!
+timestamp: 2009-12-15T18:39:57.454677
+CREATE TABLE comment(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	post REFERENCES post(id) ON DELETE CASCADE,
+	name CHAR(512),
+	email CHAR(512),
+	commentbody CHAR(512)
+);
+success!
+timestamp: 2009-12-15T18:45:44.006720
+ALTER TABLE comment ADD dateline TIMESTAMP;
+timestamp: 2009-12-15T18:54:09.462200
+CREATE TABLE category(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	title CHAR(512)
+);
+success!
+timestamp: 2009-12-15T18:54:09.590571
+CREATE TABLE relations(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	post REFERENCES post(id) ON DELETE CASCADE,
+	category REFERENCES category(id) ON DELETE CASCADE,
+	tag CHAR(512),
+	relationtype CHAR(512)
+);
+success!
+timestamp: 2009-12-17T18:24:08.057423
+ALTER TABLE post ADD file CHAR(512);

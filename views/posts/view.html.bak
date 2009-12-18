@@ -1,0 +1,39 @@
+{{extend 'layout.html'}}
+<h1>{{= post.title }}</h1>
+
+<div>{{= post.body }}</div>
+
+{{ if len(categories) > 0: }}
+{{ categorycounter = 1 }}
+    <div>Posted under
+    {{ for category in categories: }}
+    <a href="/blog/categories/view/{{= category }}">{{= categories[category] }}</a>{{ if categorycounter != len(categories): }}, {{ else: }}. {{ pass }}
+    {{ categorycounter = categorycounter + 1 }}
+    {{ pass }}
+    </div>
+{{ pass }}
+
+{{ if len(tags) > 0: }}
+{{ tagcounter = 1 }}
+    <div>Tagged with: 
+    {{ for tag in tags: }}
+        {{= tag }}{{ if tagcounter != len(tags): }}, {{ else: }}. {{ pass }}
+    {{ tagcounter = tagcounter + 1 }}
+    {{ pass }}
+    </div>
+{{ pass }}
+
+
+
+<h1>Comments</h1>
+{{ if post.comment.count() > 0: }}
+    {{ for comment in post.comment.select(): }}
+    <div>{{= comment.commentbody }}</div>
+    <div>Posted by {{= comment.name }} on {{= comment.dateline }}.</div>
+    {{ pass }}
+{{ else: }}
+    <div>No comments made for this post.</div>
+{{ pass }}
+
+<h1>Have Your Say</h1>
+{{= commentform }}

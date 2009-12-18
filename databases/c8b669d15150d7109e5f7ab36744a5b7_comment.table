@@ -1,0 +1,26 @@
+(dp1
+S'name'
+p2
+S'CHAR(512)'
+p3
+sS'dateline'
+p4
+S'TIMESTAMP'
+p5
+sS'id'
+p6
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p7
+sS'post'
+p8
+S'REFERENCES post(id) ON DELETE CASCADE'
+p9
+sS'commentbody'
+p10
+S'CHAR(512)'
+p11
+sS'email'
+p12
+S'CHAR(512)'
+p13
+s.

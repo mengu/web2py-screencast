@@ -1,0 +1,26 @@
+(dp1
+S'body'
+p2
+S'TEXT'
+p3
+sS'title'
+p4
+S'CHAR(512)'
+p5
+sS'dateline'
+p6
+S'TIMESTAMP'
+p7
+sS'user'
+p8
+S'REFERENCES auth_user(id) ON DELETE CASCADE'
+p9
+sS'file'
+p10
+S'CHAR(512)'
+p11
+sS'id'
+p12
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p13
+s.

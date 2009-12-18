@@ -1,0 +1,6 @@
+{{extend 'layout.html'}}
+<h1>Entries Posted Under {{= category.title }}</h1>
+
+{{ for categorypost in categoryposts: }}
+    <div><a href="/blog/posts/view/{{= categorypost.post.id }}">{{= categorypost.post.title }}</a></div>
+{{ pass }}

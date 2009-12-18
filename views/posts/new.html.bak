@@ -1,0 +1,7 @@
+{{extend 'layout.html'}}
+<h1>Create New Blog Entry</h1>
+
+<div>
+{{ postform.custom.label.title = 'Post Title' }}
+    {{= postform }}
+</div>
